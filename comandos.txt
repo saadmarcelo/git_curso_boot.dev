@@ -1,0 +1,117 @@
+git config  --list ( lista todos os parametros configurados )
+cat ~/.gitconfig ( arquivo de configuracao do git para meu usuario )
+git config --add --global init.defaultBranch master ( transforma a branch default como master )
+git init ( inicia um repositorio git, crianndo a pasta .git )
+git status ( mostra os status do repositorio git )
+git add . ( adiciona todos os arquivos no diretorio atual no repositorio )
+git commit -m "A: add contests.md" ( cria o commit )
+git log --oneline (mostra o log atural resumindo a cada log em 1 linha)
+git --no-pager log -n 10 ( mosta o log e ja sem abrir em uma nova pagina, limitando as ultimas 10)
+git --no-pager log -n 10 --oneline --parents --graph ( --oneline mostra resumido em uma linha --parents faz a identacao com os pais --graph faz uma representacao das linhas)
+git cat-file -p <hash> ( mostra o conteudo do commit )
+
+criando configuracoes locais 
+git config --add --local webglyx.ceo ThePrimeagen
+git config --add --local webglyx.cto TheLaneagen
+git config --add --local webglyx.valuation mid
+git config --list --local ( lista as configuracoes locais )
+
+git config --get webflyx.valuation ( vai mostrar o valor da chave valuation)
+
+git config --unset webflyx.valuation ( limpa o valor da variavel valuation )
+
+git config --unset-all webflyx.valuation ( limpa todos os valores [git nao importa ter varias vezes a mesma variavel ])
+
+git config --remove-section webflyx ( vai apagar toda a seccao webflyx )
+
+LOCATIONS 
+  global: ~/.gitconfig ( arquivo que contem as configuracoes para todos os projetos )
+  local: .git/config ( aqruivo que configura o git de um determinado projeto )
+
+
+BRANCH 
+git branch ( mostra em qual branch esta atualmente )
+
+git branch -m master main ( mudar o nome da branch atual de master para main )
+git branch my_new_branch ( cria uma nova branch my_new_branch )
+git switch my_new_branch ( muda para a banch my_new_branch previamente criada )
+git switch -c add_classics ( cria e muda para a banch add_classics )
+
+
+git logs --graph --all --oneline ( mostra o log com todas  as branchs)
+git merge add_classics ( vai fazer o merge da branch main com a add_classics e criar o commit F)
+
+git branch -d add_classics ( deletar  a branch)
+
+git switch -c update_titiles ( cria a nova branch e muda )
+
+rebase
+
+tarefa ( pegar o hash do commit D e fazer uma nova branch com nome update_dune apartir daquele commit )
+
+git log --oneline ( para pegar o hash do commit D)
+git switch -c update_dune 4a98aa8 
+
+git reset --soft commithash ( volta para o determinado commit)
+git reset --soft HEAD~1 ( volta par 1 commit anterior)
+
+( reset soft [quer dizer q volta ao commit anterior e as mudancas novas ficam no stage])
+
+
+git restore --staged <file> ( tirar o documento do stage )
+git diff --staged ( mostra a diferenca do staged)
+
+git reset -hard ( volta para o commit anterior e perde todas as mudancas realizadas )
+obs se o arquivo nao estiver ainda "untracked" quando fizer o reset hard ele nao sera modificado 
+
+mkdir ../webflyx-local
+cd ../webflyx-local
+git init
+git remote add origin ../webflyx ( esta dizendo repostorio mais atualizado [ normalmente github ])
+
+git fecth ( pega todo o conteudo do origin )
+git merge origin/main
+
+ir no github e criar um repositorio webflyx
+cd ../webflyx
+git remote add origin git@github.com:saadmarcelo/webflyx.git
+
+git push origin main ( push todas as mudancas locais para o remote )
+git push origin add_classics ( enviando para o remote[github] a branch add_classics )
+
+git ls-remote ( lista de onde ta pegando as informacoes )
+
+.gitignore ( aceitas nomes e padroes de nomes para nao tracker )
+
+git commit -amend ( consegue editar o texto do ultimo commit )
+
+
+LEARN GIT 2
+
+fork do projeto do curso 
+
+git clone git@github.com:saadmarcelo/megacorp.git
+
+git switch -c add_contrib
+
+v saadmarcelo.txt
+
+git commit -m "add my self as contributor"
+
+git push origin add_contrib
+
+git branch -D add_contrib (delete a branch add_contrib )
+
+git reflog ( mostra as referencias dos ultmos commits)
+
+git switch -c slander
+
+merge conflitos
+
+git switch -c customers
+
+git log --oneline -p -1 main ( mostra as alteracoes no arquivo )
+
+
+git checkout --theirs customers/all.csv
+git checkout --ours orgs/partners.txt
